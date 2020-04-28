@@ -3,7 +3,10 @@ package appmoviles.com.deezerapp.control;
 import android.util.Log;
 import android.view.View;
 
+import com.google.gson.Gson;
+
 import appmoviles.com.deezerapp.R;
+import appmoviles.com.deezerapp.model.Main;
 import appmoviles.com.deezerapp.util.Constants;
 import appmoviles.com.deezerapp.util.HTTPSWebUtilDomi;
 import appmoviles.com.deezerapp.view.MainActivityList;
@@ -35,7 +38,7 @@ public class MainController implements View.OnClickListener,HTTPSWebUtilDomi.OnR
 
                 new Thread(
                         ()->{
-                            utilDomi.GETrequest(Constants.SEARCH_CALLBACK,"https://api.deezer.com/search/playlist?q=eminem");
+                            utilDomi.GETrequest(Constants.SEARCH_CALLBACK,"https://api.deezer.com/search/playlist?q="+nameList);
                         }
 
                 ).start();
@@ -50,7 +53,19 @@ public class MainController implements View.OnClickListener,HTTPSWebUtilDomi.OnR
 
         switch (callbackID){
             case Constants.SEARCH_CALLBACK:
-                Log.e(">>>",response);
+                Gson gson = new Gson();
+                //PlayList playList = gson.fromJson(response,PlayList.class);
+                Main main = gson.fromJson(response, Main.class);
+
+                Log.e(">>>",""+main.getData()[3].getTitle());
+
+                /*
+                for(int i=0; i<20; i++){
+                    Log.e(">>>",""+main.getData()[i].getId());
+                }*/
+
+                //Log.e(">>>",""+data.getListOfPlayLists()[0].getTitle());
+                //Log.e(">>>",response);
         }
 
     }
