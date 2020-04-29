@@ -6,19 +6,19 @@ public class PlayList implements Serializable {
 
     private long id;
     private String title; //Nombre de la lista
-    private long numTracks; //Cantidad de canciones
-    private String imageList; //Imagen de la lista
+    private long nb_tracks; //Cantidad de canciones
+    private String picture_small; //Imagen de la lista
     private User user; //Creador de la lista
 
 
     public PlayList() {
     }
 
-    public PlayList(long id, String title, long numTracks, String imageList, User user) {
+    public PlayList(long id, String title, long nb_tracks, String picture_small, User user) {
         this.id = id;
         this.title = title;
-        this.numTracks = numTracks;
-        this.imageList = imageList;
+        this.nb_tracks = nb_tracks;
+        this.picture_small = picture_small;
         this.user = user;
     }
 
@@ -46,19 +46,19 @@ public class PlayList implements Serializable {
         this.title = title;
     }
 
-    public long getNumTracks() {
-        return numTracks;
+    public long getNb_tracks() {
+        return nb_tracks;
     }
 
-    public void setNumTracks(long numTracks) {
-        this.numTracks = numTracks;
+    public void setNb_tracks(long nb_tracks) {
+        this.nb_tracks = nb_tracks;
     }
 
-    public String getImageList() {
-        return imageList;
+    public String getPicture_small() {
+        return picture_small;
     }
 
-    public void setImageList(String imageList) {
-        this.imageList = imageList;
+    public void setPicture_small(String picture_small) {
+        this.picture_small = picture_small;
     }
 }

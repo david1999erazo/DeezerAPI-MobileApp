@@ -5,8 +5,11 @@ import android.view.View;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 import appmoviles.com.deezerapp.R;
 import appmoviles.com.deezerapp.model.Main;
+import appmoviles.com.deezerapp.model.PlayList;
 import appmoviles.com.deezerapp.util.Constants;
 import appmoviles.com.deezerapp.util.HTTPSWebUtilDomi;
 import appmoviles.com.deezerapp.view.MainActivityList;
@@ -54,18 +57,20 @@ public class MainController implements View.OnClickListener,HTTPSWebUtilDomi.OnR
         switch (callbackID){
             case Constants.SEARCH_CALLBACK:
                 Gson gson = new Gson();
-                //PlayList playList = gson.fromJson(response,PlayList.class);
                 Main main = gson.fromJson(response, Main.class);
+                Log.e(">>>",""+main.getData()[0].getTitle());
 
-                Log.e(">>>",""+main.getData()[3].getTitle());
+                //Mostrar información
+                activityList.runOnUiThread(
+                        ()-> {
 
-                /*
-                for(int i=0; i<20; i++){
-                    Log.e(">>>",""+main.getData()[i].getId());
-                }*/
+                            //activityList.set
 
-                //Log.e(">>>",""+data.getListOfPlayLists()[0].getTitle());
-                //Log.e(">>>",response);
+
+                        }
+                );
+
+
         }
 
     }
