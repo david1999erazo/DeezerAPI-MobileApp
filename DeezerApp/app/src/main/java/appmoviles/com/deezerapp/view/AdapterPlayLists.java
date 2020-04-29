@@ -1,7 +1,6 @@
 package appmoviles.com.deezerapp.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import appmoviles.com.deezerapp.R;
-import appmoviles.com.deezerapp.model.PlayList;
+import appmoviles.com.deezerapp.model.PlayListObject;
 
 public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.ViewHolderPlayLists> {
 
 
-    ArrayList<PlayList> listOfplaylists;
+    ArrayList<PlayListObject> listObjectOfplaylists;
 
-    public AdapterPlayLists(ArrayList<PlayList> listOfplaylists) {
-        this.listOfplaylists = listOfplaylists;
+    public AdapterPlayLists(ArrayList<PlayListObject> listObjectOfplaylists) {
+        this.listObjectOfplaylists = listObjectOfplaylists;
 
        }
 
@@ -42,7 +39,7 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
     @Override
     public void onBindViewHolder(AdapterPlayLists.ViewHolderPlayLists holder, int position) {
 
-        PlayList playList = listOfplaylists.get(position);
+        PlayListObject playListObject = listObjectOfplaylists.get(position);
 
         TextView nameList = holder.namePlayListTV;
         TextView nameCreator = holder.nameCreatorTV;
@@ -51,19 +48,19 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
 
 
 
-        holder.namePlayListTV.setText(listOfplaylists.get(position).getTitle());
-        holder.nameCreatorTV.setText(listOfplaylists.get(position).getUser().getName());
-        holder.numberOfsongsTV.setText(listOfplaylists.get(position).getNb_tracks()+"");
+        holder.namePlayListTV.setText(listObjectOfplaylists.get(position).getTitle());
+        holder.nameCreatorTV.setText(listObjectOfplaylists.get(position).getUser().getName());
+        holder.numberOfsongsTV.setText(listObjectOfplaylists.get(position).getNb_tracks()+"");
 
 
-        nameList.setText(playList.getTitle());
-        nameCreator.setText(playList.getUser().getName());
-        numberTracks.setText(playList.getNb_tracks()+"");
+        nameList.setText(playListObject.getTitle());
+        nameCreator.setText(playListObject.getUser().getName());
+        numberTracks.setText(playListObject.getNb_tracks()+"");
 
-        Glide.with(holder.itemView).load(playList.getPicture_small()).centerCrop().into(imageView);
+        Glide.with(holder.itemView).load(playListObject.getPicture_small()).centerCrop().into(imageView);
 
 
-        //Metodo para abrar playList
+        //Metodo para abrar playListObject
         holder.itemView.setOnClickListener(
                 (v)->{
                     //Intent i = new Intent(holder.itemView.getContext(), )
@@ -78,7 +75,7 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
     @Override
     public int getItemCount() {
 
-        return listOfplaylists.size();
+        return listObjectOfplaylists.size();
     }
 
     public class ViewHolderPlayLists extends RecyclerView.ViewHolder {
@@ -98,11 +95,11 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
 
     }
 
-    public ArrayList<PlayList> getListOfplaylists() {
-        return listOfplaylists;
+    public ArrayList<PlayListObject> getListObjectOfplaylists() {
+        return listObjectOfplaylists;
     }
 
-    public void setListOfplaylists(ArrayList<PlayList> listOfplaylists) {
-        this.listOfplaylists = listOfplaylists;
+    public void setListObjectOfplaylists(ArrayList<PlayListObject> listObjectOfplaylists) {
+        this.listObjectOfplaylists = listObjectOfplaylists;
     }
 }

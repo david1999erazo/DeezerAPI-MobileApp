@@ -2,7 +2,7 @@ package appmoviles.com.deezerapp.model;
 
 import java.io.Serializable;
 
-public class PlayList implements Serializable {
+public class PlayListObject implements Serializable {
 
     private long id;
     private String title; //Nombre de la lista
@@ -11,10 +11,10 @@ public class PlayList implements Serializable {
     private User user; //Creador de la lista
 
 
-    public PlayList() {
+    public PlayListObject() {
     }
 
-    public PlayList(long id, String title, long nb_tracks, String picture_small, User user) {
+    public PlayListObject(long id, String title, long nb_tracks, String picture_small, User user) {
         this.id = id;
         this.title = title;
         this.nb_tracks = nb_tracks;
