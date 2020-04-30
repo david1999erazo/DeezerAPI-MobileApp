@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/image_playlist"
+        android:id="@+id/image_playlistV"
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_below="@+id/banner"
@@ -47,10 +47,10 @@
         app:layout_constraintTop_toBottomOf="@+id/banner" />
 
     <TextView
-        android:id="@+id/nameArtistTV"
+        android:id="@+id/namePlaylistTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image_playlist"
+        android:layout_below="@+id/image_playlistV"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -59,20 +59,20 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_playlist" />
+        app:layout_constraintTop_toBottomOf="@+id/image_playlistV" />
 
     <TextView
         android:id="@+id/descriptionTV"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_below="@+id/nameArtistTV"
+        android:layout_below="@+id/namePlaylistTV"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="Descripción playlist..."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameArtistTV" />
+        app:layout_constraintTop_toBottomOf="@+id/namePlaylistTV" />
 
     <TextView
         android:id="@+id/infoPlaylistTV"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/descriptionTV" />
 
     <ListView
-        android:id="@+id/lv_infoplaylists"
+        android:id="@+id/tracksLV"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_below="@+id/infoPlaylistTV"

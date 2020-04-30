@@ -69,6 +69,8 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
         holder.itemView.setOnClickListener(
                 (v)->{
                     Intent i = new Intent ( holder.itemView.getContext(), activity_playlistN.class);
+                    i.putExtra("id", listObjectOfplaylists.get(position).getId()+"");
+                    //Log.e("ADAPTER id lista",""+listObjectOfplaylists.get(position).getId());
                     holder.itemView.getContext().startActivity(i);
                 }
 
@@ -93,7 +95,7 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
             super(itemView);
             //Hacer referencia a los componentes que tengamos
 
-            namePlayListTV = (TextView) itemView.findViewById(R.id.nameArtistTV);
+            namePlayListTV = (TextView) itemView.findViewById(R.id.namePlaylistTV);
             nameCreatorTV = (TextView) itemView.findViewById(R.id.nameTrackTV);
             numberOfsongsTV = (TextView) itemView.findViewById(R.id.yearTV);
             imageIV = itemView.findViewById(R.id.imageTrackV);
