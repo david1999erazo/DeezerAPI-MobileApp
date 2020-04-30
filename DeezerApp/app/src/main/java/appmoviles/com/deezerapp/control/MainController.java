@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -29,10 +30,6 @@ public class MainController implements View.OnClickListener,HTTPSWebUtilDomi.OnR
         this.activityList.getBtnSearch().setOnClickListener(this);
         utilDomi = new HTTPSWebUtilDomi();
         utilDomi.setListener(this);
-
-        adapter = new AdapterPlayLists(new ArrayList<>());
-        activityList.getRecyclerViewPlaylists().setAdapter(adapter);
-        activityList.getRecyclerViewPlaylists().setLayoutManager(new LinearLayoutManager(activityList));
 
     }
 
@@ -63,18 +60,28 @@ public class MainController implements View.OnClickListener,HTTPSWebUtilDomi.OnR
         switch (callbackID){
             case Constants.SEARCH_CALLBACK:
                 Gson gson = new Gson();
-                //PlaylistResult result = gson.fromJson(response, PlaylistResult.class);
-                //Log.e(">>>",""+result.getData()[0].getTitle());
+
                 PlaylistResult result = gson.fromJson(response, PlaylistResult.class);
+                //Log.e(">>>",""+result.getData()[0].getTitle());
+                //PlayListObject result = gson.fromJson(response, PlayListObject.class);
                 //Mostrar información
+
+
                 activityList.runOnUiThread(
                         ()-> {
+                            ArrayList<PlayListObject> list = new ArrayList<>();
 
+                            for( int i=0; i<result.getData().length;i++ ){
+                                list.add(result.getData()[i]);
+                            }
 
+                            adapter = new AdapterPlayLists(list);
+                            activityList.getRecyclerViewPlaylists().setAdapter(adapter);
+                            activityList.getRecyclerViewPlaylists().setLayoutManager(new LinearLayoutManager(activityList));
 
                         }
                 );
-
+                break;
 
         }
 

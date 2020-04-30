@@ -1,52 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/imageIV"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="#00BCD4" />
+        android:id="@+id/imageTrackV"
+        android:layout_width="82dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/nameTrackTV"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre lista"
-            android:textSize="14dp"
-            android:textColor="#000"
-            android:id="@+id/namePlaylistTV"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:text="Nombre del usuario creador"
+        android:textColor="#000"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/imageTrackV"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre del usuario creador"
-            android:textSize="14dp"
-            android:textColor="#000"
-            android:id="@+id/nameCreatorTV"/>
+    <TextView
+        android:id="@+id/yearTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Número de canciones"
+        android:textColor="#000"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/imageTrackV"
+        app:layout_constraintTop_toBottomOf="@+id/nameArtistTV" />
 
-        <TextView
-            android:id="@+id/numberOfsongsTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Número de canciones"
-            android:textColor="#000"
-            android:textSize="14dp" />
+    <TextView
+        android:id="@+id/nameArtistTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Nombre lista"
+        android:textColor="#000"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/imageTrackV"
+        app:layout_constraintTop_toBottomOf="@+id/nameTrackTV" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="11dp"
-            android:background="@color/colorPrimary" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearTV"
+        tools:layout_editor_absoluteX="0dp" />
 
-    </LinearLayout>
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

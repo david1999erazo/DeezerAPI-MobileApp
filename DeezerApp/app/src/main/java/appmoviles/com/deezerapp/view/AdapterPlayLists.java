@@ -1,6 +1,8 @@
 package appmoviles.com.deezerapp.view;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,6 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
 
     public AdapterPlayLists(ArrayList<PlayListObject> listObjectOfplaylists) {
         this.listObjectOfplaylists = listObjectOfplaylists;
-
        }
 
     @Override
@@ -41,30 +42,34 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
 
         PlayListObject playListObject = listObjectOfplaylists.get(position);
 
+        /*
         TextView nameList = holder.namePlayListTV;
         TextView nameCreator = holder.nameCreatorTV;
         TextView numberTracks = holder.numberOfsongsTV;
         ImageView imageView = holder.imageIV;
-
+        */
 
 
         holder.namePlayListTV.setText(listObjectOfplaylists.get(position).getTitle());
         holder.nameCreatorTV.setText(listObjectOfplaylists.get(position).getUser().getName());
         holder.numberOfsongsTV.setText(listObjectOfplaylists.get(position).getNb_tracks()+"");
+        Glide.with(holder.itemView).load(playListObject.getPicture_small()).centerCrop().into(holder.imageIV);
 
 
+        /*
         nameList.setText(playListObject.getTitle());
         nameCreator.setText(playListObject.getUser().getName());
         numberTracks.setText(playListObject.getNb_tracks()+"");
 
-        Glide.with(holder.itemView).load(playListObject.getPicture_small()).centerCrop().into(imageView);
+        */
 
+        Log.e(">>>",""+listObjectOfplaylists.get(position).getTitle());
 
         //Metodo para abrar playListObject
         holder.itemView.setOnClickListener(
                 (v)->{
-                    //Intent i = new Intent(holder.itemView.getContext(), )
-                    //holder.itemView.getContext().startActivity(i);
+                    Intent i = new Intent ( holder.itemView.getContext(), activity_playlistN.class);
+                    holder.itemView.getContext().startActivity(i);
                 }
 
         );
@@ -78,6 +83,7 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
         return listObjectOfplaylists.size();
     }
 
+
     public class ViewHolderPlayLists extends RecyclerView.ViewHolder {
 
         public TextView namePlayListTV, nameCreatorTV, numberOfsongsTV;
@@ -86,20 +92,15 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
         public ViewHolderPlayLists(View itemView) {
             super(itemView);
             //Hacer referencia a los componentes que tengamos
-            namePlayListTV = (TextView) itemView.findViewById(R.id.namePlaylistTV);
-            nameCreatorTV = (TextView) itemView.findViewById(R.id.nameCreatorTV);
-            numberOfsongsTV = (TextView) itemView.findViewById(R.id.numberOfsongsTV);
-            imageIV = itemView.findViewById(R.id.imageIV);
+
+            namePlayListTV = (TextView) itemView.findViewById(R.id.nameArtistTV);
+            nameCreatorTV = (TextView) itemView.findViewById(R.id.nameTrackTV);
+            numberOfsongsTV = (TextView) itemView.findViewById(R.id.yearTV);
+            imageIV = itemView.findViewById(R.id.imageTrackV);
+
 
         }
 
     }
 
-    public ArrayList<PlayListObject> getListObjectOfplaylists() {
-        return listObjectOfplaylists;
-    }
-
-    public void setListObjectOfplaylists(ArrayList<PlayListObject> listObjectOfplaylists) {
-        this.listObjectOfplaylists = listObjectOfplaylists;
-    }
 }

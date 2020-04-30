@@ -5,7 +5,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextClock;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import appmoviles.com.deezerapp.R;
 import appmoviles.com.deezerapp.control.MainController;
@@ -28,6 +32,7 @@ public class MainActivityList extends AppCompatActivity {
         searchListET = findViewById(R.id.searchListET);
         btnSearch = findViewById(R.id.btnSearch);
         recyclerViewPlaylists = findViewById(R.id.recycleListOfplayList);
+
         controller = new MainController(this);
 
     }
@@ -47,4 +52,6 @@ public class MainActivityList extends AppCompatActivity {
     public void setRecyclerViewPlaylists(RecyclerView recyclerViewPlaylists) {
         this.recyclerViewPlaylists = recyclerViewPlaylists;
     }
+
 }
+
