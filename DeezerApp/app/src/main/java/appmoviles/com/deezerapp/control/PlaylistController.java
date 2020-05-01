@@ -2,14 +2,13 @@ package appmoviles.com.deezerapp.control;
 
 import android.util.Log;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
 
 import appmoviles.com.deezerapp.model.PlayList;
 import appmoviles.com.deezerapp.util.Constants;
 import appmoviles.com.deezerapp.util.HTTPSWebUtilDomi;
-import appmoviles.com.deezerapp.view.AdapterPlayList;
+import appmoviles.com.deezerapp.adapter.AdapterPlayList;
 import appmoviles.com.deezerapp.view.activity_playlistN;
 
 public class PlaylistController implements HTTPSWebUtilDomi.OnResponseListener {
@@ -32,8 +31,6 @@ public class PlaylistController implements HTTPSWebUtilDomi.OnResponseListener {
         new Thread(
                 ()->{
                          utilDomi.GETrequest(Constants.SEARCH_CALLBACK, "https://api.deezer.com/playlist/"+id);
-                         //utilDomi.GETrequest(Constants.SEARCH_CALLBACK, "https://api.deezer.com/playlist/908622995");
-                          Log.e("VERFICACION LLEGA ID",""+id);
                 }
         ).start();
 
@@ -46,7 +43,20 @@ public class PlaylistController implements HTTPSWebUtilDomi.OnResponseListener {
                 adapter.clear();
                 Gson gson = new Gson();
                 PlayList result = gson.fromJson(response, PlayList.class);
-                //Log.e(">>>",""+result.getTitle());
+
+                activity.runOnUiThread(
+                        ()->{
+                            activity.getNamePlaylistTV().setText(result.getTitle());
+                            activity.getDescriptionTV().setText(result.getDescription());
+                            activity.getInfoPlaylistTV().setText(result.getNb_tracks()+" canciones");
+                            adapter.getListOfSongs().addAll(result.getTracks().getData());
+                            adapter.notifyDataSetChanged();
+                            Glide.with(activity).load(
+                                    result.getPicture_medium()
+                            ).centerCrop().into(activity.getImage_playlistV());
+                        }
+
+                );
 
 
 

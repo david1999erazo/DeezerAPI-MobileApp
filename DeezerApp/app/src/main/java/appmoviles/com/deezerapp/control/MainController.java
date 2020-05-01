@@ -1,11 +1,9 @@
 package appmoviles.com.deezerapp.control;
 
-import android.util.Log;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ import appmoviles.com.deezerapp.model.PlayListObject;
 import appmoviles.com.deezerapp.model.PlaylistResult;
 import appmoviles.com.deezerapp.util.Constants;
 import appmoviles.com.deezerapp.util.HTTPSWebUtilDomi;
-import appmoviles.com.deezerapp.view.AdapterPlayLists;
+import appmoviles.com.deezerapp.adapter.AdapterPlayLists;
 import appmoviles.com.deezerapp.view.MainActivityList;
 
 public class MainController implements View.OnClickListener,HTTPSWebUtilDomi.OnResponseListener{

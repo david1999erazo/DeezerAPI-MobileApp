@@ -15,12 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/btn_return"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_return" />
-
         <TextView
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -33,7 +27,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageTrack"
+        android:id="@+id/imageTrackV"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="150dp"
@@ -52,10 +46,10 @@
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageTrack" />
+        app:layout_constraintTop_toBottomOf="@+id/imageTrackV" />
 
     <TextView
-        android:id="@+id/nameTrackTV2"
+        android:id="@+id/timeTrackTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -98,7 +92,7 @@
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTrackTV2" />
+        app:layout_constraintTop_toBottomOf="@+id/timeTrackTV" />
 
     <Button
         android:id="@+id/listenBtn"

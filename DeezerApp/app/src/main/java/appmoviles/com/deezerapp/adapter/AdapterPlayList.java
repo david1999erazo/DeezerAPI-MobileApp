@@ -1,6 +1,7 @@
-package appmoviles.com.deezerapp.view;
+package appmoviles.com.deezerapp.adapter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import java.util.Date;
 
 import appmoviles.com.deezerapp.R;
 import appmoviles.com.deezerapp.model.SongObject;
+import appmoviles.com.deezerapp.view.activity_trackN;
 
 public class AdapterPlayList extends BaseAdapter {
 
@@ -64,20 +66,31 @@ public class AdapterPlayList extends BaseAdapter {
         nameArtist.setText(listOfSongs.get(position).getArtist().getName());
         yearTrack.setText(new Date(Long.parseLong(listOfSongs.get(position).getTime_add())).toString());
 
-        Glide.with(item).load(
-                listOfSongs.get(position).getAlbum().getCover_small()
-        ).centerCrop().into(imageTrack);
 
+        if(listOfSongs.get(position).getAlbum()!=null){
+            Glide.with(item).load(
+                    listOfSongs.get(position).getAlbum().getCover_small()
+            ).centerCrop().into(imageTrack);
+        }
 
         item.setOnClickListener(
                 (v)->{
                     Intent i = new Intent(item.getContext(), activity_trackN.class);
-
+                    i.putExtra("id",listOfSongs.get(position).getId());
+                    Log.e(">>>",""+listOfSongs.get(position).getId());
                     item.getContext().startActivity(i);
                 }
         );
 
 
         return item;
+    }
+
+    public ArrayList<SongObject> getListOfSongs() {
+        return listOfSongs;
+    }
+
+    public void setListOfSongs(ArrayList<SongObject> listOfSongs) {
+        this.listOfSongs = listOfSongs;
     }
 }

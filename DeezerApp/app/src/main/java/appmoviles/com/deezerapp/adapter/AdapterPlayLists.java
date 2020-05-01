@@ -1,4 +1,4 @@
-package appmoviles.com.deezerapp.view;
+package appmoviles.com.deezerapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import appmoviles.com.deezerapp.R;
 import appmoviles.com.deezerapp.model.PlayListObject;
+import appmoviles.com.deezerapp.view.activity_playlistN;
 
 public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.ViewHolderPlayLists> {
 
@@ -63,7 +64,7 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
 
         */
 
-        Log.e(">>>",""+listObjectOfplaylists.get(position).getTitle());
+        //Log.e(">>>",""+listObjectOfplaylists.get(position).getTitle());
 
         //Metodo para abrar playListObject
         holder.itemView.setOnClickListener(

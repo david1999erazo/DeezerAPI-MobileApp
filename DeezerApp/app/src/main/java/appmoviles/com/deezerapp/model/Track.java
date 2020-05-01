@@ -1,5 +1,6 @@
 package appmoviles.com.deezerapp.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Track {
