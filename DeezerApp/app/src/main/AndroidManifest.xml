@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity_trackN"></activity>
+        <activity android:name=".view.PlayTrack"></activity>
+        <activity android:name=".view.activity_trackN" />
         <activity android:name=".view.activity_playlistN" />
         <activity android:name=".view.MainActivityList">
             <intent-filter>

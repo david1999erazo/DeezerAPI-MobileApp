@@ -43,26 +43,10 @@ public class AdapterPlayLists extends RecyclerView.Adapter<AdapterPlayLists.View
 
         PlayListObject playListObject = listObjectOfplaylists.get(position);
 
-        /*
-        TextView nameList = holder.namePlayListTV;
-        TextView nameCreator = holder.nameCreatorTV;
-        TextView numberTracks = holder.numberOfsongsTV;
-        ImageView imageView = holder.imageIV;
-        */
-
-
         holder.namePlayListTV.setText(listObjectOfplaylists.get(position).getTitle());
         holder.nameCreatorTV.setText(listObjectOfplaylists.get(position).getUser().getName());
         holder.numberOfsongsTV.setText(listObjectOfplaylists.get(position).getNb_tracks()+"");
         Glide.with(holder.itemView).load(playListObject.getPicture_small()).centerCrop().into(holder.imageIV);
-
-
-        /*
-        nameList.setText(playListObject.getTitle());
-        nameCreator.setText(playListObject.getUser().getName());
-        numberTracks.setText(playListObject.getNb_tracks()+"");
-
-        */
 
         //Log.e(">>>",""+listObjectOfplaylists.get(position).getTitle());
 

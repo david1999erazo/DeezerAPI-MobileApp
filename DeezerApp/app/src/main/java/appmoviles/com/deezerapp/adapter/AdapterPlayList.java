@@ -77,6 +77,7 @@ public class AdapterPlayList extends BaseAdapter {
                 (v)->{
                     Intent i = new Intent(item.getContext(), activity_trackN.class);
                     i.putExtra("id",listOfSongs.get(position).getId());
+                    i.putExtra("link",listOfSongs.get(position).getLink());
                     Log.e(">>>",""+listOfSongs.get(position).getId());
                     item.getContext().startActivity(i);
                 }

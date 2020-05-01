@@ -8,8 +8,10 @@ import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import appmoviles.com.deezerapp.model.SongObject;
+import appmoviles.com.deezerapp.model.Track;
 import appmoviles.com.deezerapp.util.Constants;
 import appmoviles.com.deezerapp.util.HTTPSWebUtilDomi;
+import appmoviles.com.deezerapp.view.PlayTrack;
 import appmoviles.com.deezerapp.view.activity_trackN;
 
 public class TrackController implements HTTPSWebUtilDomi.OnResponseListener {
@@ -31,23 +33,27 @@ public class TrackController implements HTTPSWebUtilDomi.OnResponseListener {
                 }
         ).start();
 
-       /*
+        String link = this.activity.getIntent().getExtras().getString("link");
         activity.getListenBtn().setOnClickListener(
                 V->{
+
+
                     try{
-                        String uri = "deezer://www.deezer.com/track/"+result.getLink();
+                        String uri = "deezer://www.deezer.com/track/"+link;
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                         activity.startActivity(intent);
                     }catch (Exception e){
-                        /*
-                        Integer intent = new Integer(activity, Play.class);
-                        intent.putExtra("url",result.getLink());
-                        activity.startActivity(intent);
+
+                        Intent i= new Intent(activity, PlayTrack.class);
+                        i.putExtra("url", link);
+                        activity.startActivity(i);
+
                     }
+
 
                 }
 
-        );*/
+        );
 
 
     }
